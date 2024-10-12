@@ -11,7 +11,11 @@ const loginInfos = {
   email: "",
   password: "",
 };
-const LoginForm = () => {
+
+interface LoginFormProps {
+  setVisible: (visible: boolean) => void; // Accept setVisible as a prop
+}
+const LoginForm = ({ setVisible }: LoginFormProps) => {
   const [login, setLogin] = useState(loginInfos);
   const { email, password } = login;
   const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +71,10 @@ const LoginForm = () => {
             Forgotten password?
           </Link>
           <div className={style.sign_splitter}></div>
-          <button className={`blue_btn ${style.open_signup}`}>
+          <button
+            className={`blue_btn ${style.open_signup}`}
+            onClick={() => setVisible(true)}
+          >
             Create Account
           </button>
         </div>

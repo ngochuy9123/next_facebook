@@ -1,77 +1,86 @@
 import React from "react";
-import style from "@/components/inputs/loginInput/style.module.scss";
+import style from "@/components/inputs/registerInput/style.module.scss";
 import { ErrorMessage, useField } from "formik";
 import { useMediaQuery } from "react-responsive";
+import icons from "@/public/icons.module.scss";
 
-interface LoginInputProps {
+interface RegisterInputProps {
   placeholder: string;
-  type?: string; // type có thể không bắt buộc và mặc định là "text"
+  type?: string;
   name: string;
-  bottom?: boolean; // Thêm prop bottom, mặc định là false
-  [key: string]: any; // Chấp nhận các props khác từ Formik như value, onChange, etc.
+  bottom?: boolean;
+  [key: string]: any;
 }
 
-const RegisterInput: React.FC<LoginInputProps> = ({
+const RegisterInput: React.FC<RegisterInputProps> = ({
   placeholder,
   type = "text",
-  bottom = false, // Giá trị mặc định cho bottom
+  bottom = false,
   ...props
 }) => {
   const [field, meta] = useField(props);
-  const desktopView = useMediaQuery({
+  const view1 = useMediaQuery({
+    query: "(min-width: 539px)",
+  });
+  const view2 = useMediaQuery({
     query: "(min-width: 850px)",
   });
+  const view3 = useMediaQuery({
+    query: "(min-width: 1170px)",
+  });
+  const test1 = view3 && field.name === "first_name";
+  const test2 = view3 && field.name === "last_name";
+
   return (
-    <div className={style.input_wrap}>
-      {meta.touched && meta.error && !bottom && (
-        <div
-          className={
-            desktopView
-              ? `${style.input_error} ${style.input_error_desktop}`
-              : style.input_error
-          }
-          style={{ transform: "translateY(3px)" }}
-        >
-          <ErrorMessage name={field.name} />
-          <div
-            className={
-              desktopView ? style.error_arrow_left : style.error_arrow_top
-            }
-          ></div>
-        </div>
-      )}
+    <div className={`${style.input_wrap} ${style.register_input_wrap}`}>
       <input
-        className={meta.touched && meta.error ? style.input_error_border : ""}
-        type={type} // Đảm bảo truyền vào hoặc mặc định là "text"
-        name={field.name} // Sử dụng name từ field của Formik
+        className={
+          meta.touched && meta.error ? `${style.input_error_border}` : ""
+        }
+        style={{
+          width: `${
+            view1 && (field.name === "first_name" || field.name === "last_name")
+              ? "100%"
+              : view1 && (field.name === "email" || field.name === "password")
+              ? "370px"
+              : "300px"
+          }`,
+        }}
+        type={type}
+        name={field.name}
         placeholder={placeholder}
         {...field}
-        {...props} // Truyền các props còn lại (không có name)
+        {...props}
       />
-      {meta.touched && meta.error && bottom && (
+
+      {meta.touched && meta.error && (
         <div
           className={
-            desktopView
+            view3
               ? `${style.input_error} ${style.input_error_desktop}`
-              : style.input_error
+              : `${style.input_error}`
           }
-          style={{ transform: "translateY(2px)" }}
+          style={{
+            transform: "translateY(2px)",
+            left: `${test1 ? "-107%" : test2 ? "107%" : ""}`,
+          }}
         >
-          <ErrorMessage name={field.name} />
-          <div
-            className={
-              desktopView ? style.error_arrow_left : style.error_arrow_top
-            }
-          ></div>
+          {meta.touched && meta.error && <ErrorMessage name={field.name} />}
+          {meta.touched && meta.error && (
+            <div
+              className={
+                view3 && field.name !== "last_name"
+                  ? style.error_arrow_left
+                  : view3 && field.name === "last_name"
+                  ? style.error_arrow_right
+                  : !view3 && style.error_arrow_bottom
+              }
+            ></div>
+          )}
         </div>
       )}
 
-      {meta.touched && meta.error && (
-        <i
-          className={style.error_icon}
-          style={{ top: !bottom && desktopView ? "63%" : "15px" }}
-        ></i>
-      )}
+      {meta.touched && meta.error && <i className={icons.error_icon}></i>}
     </div>
   );
 };
