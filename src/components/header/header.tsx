@@ -5,6 +5,7 @@ import {
   ArrowDown,
   Friends,
   Gaming,
+  Home,
   HomeActive,
   Logo,
   Market,
@@ -13,7 +14,7 @@ import {
   Notifications,
   Search,
   Watch,
-} from "@/public/svg";
+} from "@/app/public/svg";
 import { useRef, useState } from "react";
 import SearchMenu from "./searchMenu";
 import AllMenu from "./AllMenu";
@@ -27,8 +28,9 @@ interface UserHeaderProps {
     name: string;
     profilePicture: string;
   };
+  page: string;
 }
-const UserHeader = ({ user }: UserHeaderProps) => {
+const UserHeader = ({ user, page }: UserHeaderProps) => {
   // const { user } = useSelector((user) => ({ ...user }));
   const color = "#65676b";
   const [showSearchMenu, setShowSearchMenu] = useState(false);
@@ -67,10 +69,13 @@ const UserHeader = ({ user }: UserHeaderProps) => {
       )}
 
       <div className={styles.header_middle}>
-        <Link href="/" className={`${styles.middle_icon} ${styles.active}`}>
-          <HomeActive />
+        <Link
+          href="/"
+          className={`${styles.middle_icon} ${page === "home" ? "active" : ""}`}
+        >
+          {page === "home" ? <HomeActive /> : <Home color={color} />}
         </Link>
-        <Link href="/" className={`${styles.middle_icon} hover1`}>
+        <Link href="/" className={`${styles.middle_icon} hover1 `}>
           <Friends color={color} />
         </Link>
         <Link href="/" className={`${styles.middle_icon} hover1`}>
@@ -85,13 +90,13 @@ const UserHeader = ({ user }: UserHeaderProps) => {
         </Link>
       </div>
       <div className={styles.header_right}>
-        <Link href="/profile" className={`${styles.profile_link} hover1`}>
-          <Image
-            src={avatar}
-            alt="Avartar"
-            width="40"
-            height="40"
-          />
+        <Link
+          href="/Profile"
+          className={`${styles.profile_link} hover1 ${
+            page === "profile" ? `${styles.active_link}` : ""
+          }`}
+        >
+          <Image src={avatar} alt="Avartar" width="40" height="40" />
           <span>Nguyen Huy</span>
         </Link>
         <div

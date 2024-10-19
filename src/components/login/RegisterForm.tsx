@@ -4,7 +4,7 @@ import { Form, Formik } from "formik";
 import { useState } from "react";
 import RegisterInput from "../inputs/registerInput";
 import style from "@/styles/Login.module.scss";
-import icons from "@/public/icons.module.scss";
+import icons from "/public/icons.module.scss";
 import * as Yup from "yup";
 import GenderSelect from "./GenderSelect";
 import DateOfBirthSelect from "./DateOfBirthSelect";

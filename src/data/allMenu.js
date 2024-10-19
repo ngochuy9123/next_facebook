@@ -37,122 +37,122 @@ import jobIcon from "@/public/left/m_post_job.png";*/
 export const menu = [
   {
     name: "Campus",
-    icon: campusIcon,
+    icon: campusIcon.src,
     description: "A unique, exclusive space for college students on Facebook.",
   },
   {
     name: "Events",
-    icon: eventsIcon,
+    icon: eventsIcon.src,
     description:
       "Organize or find events and other things to do online and nearby.",
   },
   {
     name: "Find Friends",
-    icon: friendsIcon,
+    icon: friendsIcon.src,
     description: "Search for friends or people you may know.",
   },
   {
     name: "Groups",
-    icon: groupsIcon,
+    icon: groupsIcon.src,
     description: "Connect with people who share your interests.",
   },
   {
     name: "News Feed",
-    icon: feedIcon,
+    icon: feedIcon.src,
     description: "See relevant posts from people and Pages you follow.",
   },
   {
     name: "Pages",
-    icon: pagesIcon,
+    icon: pagesIcon.src,
     description: "Discover and connect with businesses on Facebook.",
   },
   {
     name: "Gaming Video",
-    icon: gamingIcon,
+    icon: gamingIcon.src,
     description: "Watch and connect with your favorite games and streamers.",
   },
   {
     name: "Play Games",
-    icon: playIcon,
+    icon: playIcon.src,
     description: "Play your favorite games.",
   },
   {
     name: "Watch",
-    icon: watchIcon,
+    icon: watchIcon.src,
     description:
       "A video destination personalized to your interests and connections.",
   },
   {
     name: "Facebook Pay",
-    icon: payIcon,
+    icon: payIcon.src,
     description: "A seamless, secure way to pay on the apps you already use.",
   },
   {
     name: "Marketplace",
-    icon: marketplaceIcon,
+    icon: marketplaceIcon.src,
     description: "Buy and sell in your community.",
   },
   {
     name: "Recent Ad Activity",
-    icon: recentIcon,
+    icon: recentIcon.src,
     description: "See all the ads you interacted with on Facebook.",
   },
   {
     name: "Memories",
-    icon: memoriesIcon,
+    icon: memoriesIcon.src,
     description: "Browse your old photos, videos and posts on Facebook.",
   },
   {
     name: "Saved",
-    icon: savedIcon,
+    icon: savedIcon.src,
     description: "Find posts, photos and videos that you saved for later.",
   },
   {
     name: "Weather",
-    icon: weatherIcon,
+    icon: weatherIcon.src,
     description:
       "Check your local forecast and sign up for daily weather notifications.",
   },
   {
     name: "Ads",
-    icon: adsIcon,
+    icon: adsIcon.src,
     description: "Create, manage and track the performance of your ads.",
   },
   {
     name: "Jobs",
-    icon: jobsIcon,
+    icon: jobsIcon.src,
     description: "Find a job that's right for you.",
   },
   {
     name: "Climate science center",
-    icon: climateIcon,
+    icon: climateIcon.src,
     description: "Learn about climate change and its effects.",
   },
   {
     name: "COVID-19 Information Center",
-    icon: covidIcon,
+    icon: covidIcon.src,
     description:
       "See the latest prevention tips, community resources and updates from health organizations.",
   },
   {
     name: "Community Help",
-    icon: communityIcon,
+    icon: communityIcon.src,
     description:
       "Get involved in your community by creating a drive, requesting or offering help or volunteering.",
   },
   {
     name: "Fundraisers",
-    icon: fundraisersIcon,
+    icon: fundraisersIcon.src,
     description: "Donate and raise money for nonprofits and personal causes.",
   },
   {
     name: "Messenger",
-    icon: messengerIcon,
+    icon: messengerIcon.src,
     description: "Chat instantly with your friends and connections.",
   },
   {
     name: "Messenger Kids",
-    icon: messkidsIcon,
+    icon: messkidsIcon.src,
     description: "Let kids message with close friends and family.",
   },
 ];

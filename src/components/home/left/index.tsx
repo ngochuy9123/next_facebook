@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { left } from "@/data/home";
 import LeftLink from "./LeftLink";
-import { ArrowDown1 } from "@/public/svg";
+import { ArrowDown1 } from "@/app/public/svg";
 import Shortcut from "./Shortcut";
 import avatar from "@/public/images/default_profile.png";
 import youtb from "@/public/images/ytb.png";
@@ -21,13 +21,8 @@ const LeftHome = ({ user }: UserHeaderProps) => {
   const [visible, setVisible] = useState(false);
   return (
     <div className={`${styles.left_home} scrollbar`}>
-      <Link href={"profile"} className={`${styles.left_link} hover1`}>
-        <Image
-          src={avatar}
-          alt="Avartar"
-          width="40"
-          height="40"
-        />
+      <Link href={"Profile"} className={`${styles.left_link} hover1`}>
+        <Image src={avatar} alt="Avartar" width="40" height="40" />
         <span>{user?.name}</span>
       </Link>
       {left.slice(0, 8).map((link, i) => (

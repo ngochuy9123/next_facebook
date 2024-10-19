@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ArrowRight, Plus } from "@/public/svg";
+import { ArrowRight, Plus } from "@/app/public/svg";
 import styles from "@/styles/stories.module.scss";
 import Story from "./Story";
 import { stories } from "@/data/home";

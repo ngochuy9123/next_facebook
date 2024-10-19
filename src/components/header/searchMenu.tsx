@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { Return, Search } from "@/public/svg";
+import { Return, Search } from "@/app/public/svg";
 import styles from "@/styles/header.module.scss";
 import useClickOutside from "@/helper/useClickOutside";
 

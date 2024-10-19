@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@/styles/rightHome.module.scss";
-import { Dots, NewRoom, Search } from "@/public/svg";
+import { Dots, NewRoom, Search } from "@/app/public/svg";
 import Contact from "./Contact";
 
 interface UserProps {

@@ -13,7 +13,7 @@ import {
   Notifications,
   Search,
   Watch,
-} from "@/public/svg";
+} from "@/app/public/svg";
 import { useRef, useState } from "react";
 import SearchMenu from "./header/searchMenu";
 import AllMenu from "./header/AllMenu";

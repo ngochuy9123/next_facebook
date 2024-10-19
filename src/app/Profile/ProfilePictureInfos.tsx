@@ -1,0 +1,59 @@
+import React from "react";
+import style from "@/styles/Profile.module.scss";
+import icons from "@/public/icons.module.scss";
+import Image from "next/image";
+
+interface ProfilePictureInfosProps {
+  profile: {
+    picture: string;
+    first_name: string;
+    last_name: string;
+  };
+}
+
+const ProfilePictureInfos = ({ profile }: ProfilePictureInfosProps) => {
+  return (
+    <div className={style.profile_img_wrap}>
+      <div className={style.profile_w_left}>
+        <div className={style.profile_w_img}>
+          <div
+            className={style.profile_w_bg}
+            style={{
+              backgroundSize: "cover",
+              backgroundImage: `url(${profile.picture})`,
+            }}
+          ></div>
+          <div className={`${style.profile_circle} hover1`}>
+            <i className={icons.camera_filled_icon}></i>
+          </div>
+        </div>
+        <div className={style.profile_w_col}>
+          <div className={style.profile_name}>
+            {profile.first_name} {profile.last_name}
+            <div className={style.othername}>Othername</div>
+          </div>
+          <div className={style.profile_friend_count}></div>
+          <div className={style.profile_friend_imgs}></div>
+        </div>
+      </div>
+      <div className={style.profile_w_right}>
+        <div className="blue_btn">
+          <Image
+            src="/icons/plus.png"
+            alt="Add to story"
+            className={style.invert}
+            width={24}
+            height={24} // Adjusted image size
+          />
+          <span>Add to story</span>
+        </div>
+        <div className="gray_btn">
+          <i className={icons.edit_icon}></i>
+          <span>Edit profile</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProfilePictureInfos;

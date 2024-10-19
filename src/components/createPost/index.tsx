@@ -1,21 +1,31 @@
-import { Feeling, LiveVideo, Photo } from "@/public/svg";
+import { Feeling, LiveVideo, Photo } from "@/app/public/svg";
 import styles from "@/styles/createPost.module.scss";
 import React from "react";
 import Image from "next/image";
 
-interface CreatePostProps {
-  user: {
-    name: string;
-    profilePicture: string;
-  };
+interface User {
+  name: string;
+  firstName: string;
+  lastName: string;
+  profilePicture: string;
 }
 
-const CreatePost = ({ user }: CreatePostProps) => {
+interface CreatePostProps {
+  user: User;
+  setVisible: (visible: boolean) => void;
+}
+
+const CreatePost = ({ user, setVisible }: CreatePostProps) => {
   return (
     <div className={styles.createPost}>
       <div className={styles.createPost_header}>
         <Image src={user?.profilePicture} alt="" width={40} height={40} />
-        <div className={`${styles.open_host} hover2`}>
+        <div
+          className={`${styles.open_host} hover2`}
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
           What&apos;s on your mind, {user?.name}
         </div>
       </div>

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import style from "@/styles/Login.module.scss";
-import icons from "@/public/icons.module.scss";
+import icons from "/public/icons.module.scss";
 
 const Footer = () => {
   return (
