@@ -120,6 +120,8 @@ export default function Post({ post, user }: PostProps) {
                   key={i}
                   alt=""
                   className={styles[`img_${i}`]}
+                  width={100}
+                  height={100}
                 />
               ))}
               {post.images.length > 5 && (

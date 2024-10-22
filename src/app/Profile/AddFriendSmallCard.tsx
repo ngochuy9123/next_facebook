@@ -4,7 +4,7 @@ import Image from "next/image";
 
 interface AddFriendSmallCardProps {
   item: {
-    profile_picture: string; // Allow StaticImageData as well as string
+    profile_picture: string;
     profile_name: string;
   };
 }

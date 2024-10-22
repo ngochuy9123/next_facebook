@@ -1,6 +1,5 @@
 import React from "react";
 import style from "@/styles/Profile.module.scss";
-import icons from "@/public/icons.module.scss";
 import { Dots } from "@/public/svg";
 import { stories } from "@/data/home";
 import AddFriendSmallCard from "./AddFriendSmallCard";

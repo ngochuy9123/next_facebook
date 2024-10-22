@@ -2,6 +2,7 @@ import { Feeling, LiveVideo, Photo } from "@/app/public/svg";
 import styles from "@/styles/createPost.module.scss";
 import React from "react";
 import Image from "next/image";
+import icons from "@/public/icons.module.scss";
 
 interface User {
   name: string;
@@ -13,9 +14,10 @@ interface User {
 interface CreatePostProps {
   user: User;
   setVisible: (visible: boolean) => void;
+  profile?: boolean;
 }
 
-const CreatePost = ({ user, setVisible }: CreatePostProps) => {
+const CreatePost = ({ user, setVisible, profile }: CreatePostProps) => {
   return (
     <div className={styles.createPost}>
       <div className={styles.createPost_header}>
@@ -39,10 +41,17 @@ const CreatePost = ({ user, setVisible }: CreatePostProps) => {
           <Photo color="#4bbf67" />
           Photo/Video
         </div>
-        <div className={`${styles.createPost_icon} hover1`}>
-          <Feeling color="#f7b928" />
-          Feeling/Activity
-        </div>
+        {profile ? (
+          <div className={`${styles.createPost_icon} hover1`}>
+            <i className={icons.lifeEvent_icon}></i>
+            Life Event
+          </div>
+        ) : (
+          <div className={`${styles.createPost_icon} hover1`}>
+            <Feeling color="#f7b928" />
+            Feeling/Activity
+          </div>
+        )}
       </div>
     </div>
   );

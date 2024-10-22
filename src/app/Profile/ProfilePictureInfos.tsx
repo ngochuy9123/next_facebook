@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import style from "@/styles/Profile.module.scss";
 import icons from "@/public/icons.module.scss";
 import Image from "next/image";
+import ProfilePicture from "@/components/profilePicture";
 
 interface ProfilePictureInfosProps {
   profile: {
@@ -9,9 +11,14 @@ interface ProfilePictureInfosProps {
     first_name: string;
     last_name: string;
   };
+  visitor: boolean;
 }
 
-const ProfilePictureInfos = ({ profile }: ProfilePictureInfosProps) => {
+const ProfilePictureInfos = ({
+  profile,
+  visitor,
+}: ProfilePictureInfosProps) => {
+  const [show, setShow] = useState(false);
   return (
     <div className={style.profile_img_wrap}>
       <div className={style.profile_w_left}>
@@ -23,9 +30,11 @@ const ProfilePictureInfos = ({ profile }: ProfilePictureInfosProps) => {
               backgroundImage: `url(${profile.picture})`,
             }}
           ></div>
-          <div className={`${style.profile_circle} hover1`}>
-            <i className={icons.camera_filled_icon}></i>
-          </div>
+          {!visitor && (
+            <div className={`${style.profile_circle} hover1`}>
+              <i className={icons.camera_filled_icon}></i>
+            </div>
+          )}
         </div>
         <div className={style.profile_w_col}>
           <div className={style.profile_name}>
@@ -36,22 +45,26 @@ const ProfilePictureInfos = ({ profile }: ProfilePictureInfosProps) => {
           <div className={style.profile_friend_imgs}></div>
         </div>
       </div>
-      <div className={style.profile_w_right}>
-        <div className="blue_btn">
-          <Image
-            src="/icons/plus.png"
-            alt="Add to story"
-            className={style.invert}
-            width={24}
-            height={24} // Adjusted image size
-          />
-          <span>Add to story</span>
+      {!visitor ? (
+        ""
+      ) : (
+        <div className={style.profile_w_right}>
+          <div className="blue_btn">
+            <Image
+              src="/icons/plus.png"
+              alt="Add to story"
+              className={style.invert}
+              width={24}
+              height={24} // Adjusted image size
+            />
+            <span>Add to story</span>
+          </div>
+          <div className="gray_btn">
+            <i className={icons.edit_icon}></i>
+            <span>Edit profile</span>
+          </div>
         </div>
-        <div className="gray_btn">
-          <i className={icons.edit_icon}></i>
-          <span>Edit profile</span>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
