@@ -41,8 +41,8 @@ const UpdateProfilePicture: React.FC<UpdateProfilePictureProps> = ({
   };
 
   return (
-    <div className="postBox update_img">
-      <div className="box_header">
+    <div className={`${style.postBox} ${style.update_img}`}>
+      <div className={style.box_header}>
         <div className={style.small_circle} onClick={() => setImage("")}>
           <i className={icons.exit_icon}></i>
         </div>
@@ -53,24 +53,24 @@ const UpdateProfilePicture: React.FC<UpdateProfilePictureProps> = ({
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="textarea_blue details_input"
+          className={`${style.textarea_blue} ${style.details_input}`}
         ></textarea>
       </div>
-      <div className="update_center">
-        <div className="crooper">
+      <div className={style.update_center}>
+        <div className={style.crooper}>
           <Cropper
             ref={cropperRef}
             src={image} // `src` is the correct prop for the image
             style={{ height: 300, width: "100%" }}
             aspectRatio={1}
             guides={false}
-            crop={onCropComplete} // Provide the crop function
+            crop={onCropComplete}
             zoomTo={zoom}
           />
         </div>
-        <div className="slider">
-          <div className="slider_circle hover1" onClick={zoomOut}>
-            <i className="minus_icon"></i>
+        <div className={style.slider}>
+          <div className={`${style.slider_circle}  hover1`} onClick={zoomOut}>
+            <i className={icons.minus_icon}></i>
           </div>
           <input
             type="range"
@@ -81,25 +81,25 @@ const UpdateProfilePicture: React.FC<UpdateProfilePictureProps> = ({
             value={zoom}
             onChange={(e) => setZoom(Number(e.target.value))}
           />
-          <div className="slider_circle hover1" onClick={zoomIn}>
-            <i className="plus_icon"></i>
+          <div className={`${style.slider_circle} hover1`} onClick={zoomIn}>
+            <i className={icons.plus_icon}></i>
           </div>
         </div>
       </div>
-      <div className="flex_up">
+      <div className={style.flex_up}>
         <div className="gray_btn">
-          <i className="crop_icon"></i>Crop photo
+          <i className={icons.crop_icon}></i>Crop photo
         </div>
         <div className="gray_btn">
-          <i className="temp_icon"></i>Make Temporary
+          <i className={icons.temp_icon}></i>Make Temporary
         </div>
       </div>
-      <div className="flex_p_t">
-        <i className="public_icon"></i>
+      <div className={style.flex_p_t}>
+        <i className={icons.public_icon}></i>
         Your profile picture is public
       </div>
-      <div className="update_submit_wrap">
-        <div className="blue_link" onClick={() => setImage("")}>
+      <div className={style.update_submit_wrap}>
+        <div className={style.blue_link} onClick={() => setImage("")}>
           Cancel
         </div>
         <button className="blue_btn">Save</button>

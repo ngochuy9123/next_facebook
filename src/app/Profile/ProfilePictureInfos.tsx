@@ -18,9 +18,10 @@ const ProfilePictureInfos = ({
   profile,
   visitor,
 }: ProfilePictureInfosProps) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   return (
     <div className={style.profile_img_wrap}>
+      {show && <ProfilePicture />}
       <div className={style.profile_w_left}>
         <div className={style.profile_w_img}>
           <div

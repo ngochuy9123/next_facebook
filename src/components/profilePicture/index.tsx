@@ -44,8 +44,8 @@ const ProfilePicture: React.FC = () => {
         onChange={handleImage}
         accept="image/jpeg,image/png,image/webp,image/gif"
       />
-      <div className="postBox pictureBox">
-        <div className="box_header">
+      <div className={`${style.postBox} ${style.pictureBox}`}>
+        <div className={style.box_header}>
           <div className="small_circle" onClick={() => setImage("")}>
             <i className={icons.exit_icon}></i>
           </div>
@@ -54,7 +54,7 @@ const ProfilePicture: React.FC = () => {
         <div className={style.update_picture_wrap}>
           <div className={style.update_picture_buttons}>
             <button
-              className="light_blue_btn"
+              className={style.light_blue_btn}
               onClick={() => refInput.current?.click()}
             >
               <i className={`${icons.plus_icon} filter_blue`}></i>
